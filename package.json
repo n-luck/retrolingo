@@ -11,7 +11,8 @@
     "db:push": "npx drizzle-kit push",
     "db:seed": "bun ./scripts/seed.ts",
     "db:reset": "bun ./scripts/reset.ts",
-    "db:prod": "bun ./scripts/prod.ts"
+    "db:prod": "bun ./scripts/prod.ts",
+    "postinstall": "npm install --legacy-peer-deps"
   },
   "dependencies": {
     "@clerk/nextjs": "^6.10.2",
