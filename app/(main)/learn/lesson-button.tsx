@@ -3,10 +3,9 @@
 import React from "react";
 import Link from "next/link";
 import { Check, Crown, Star } from "lucide-react";
-import { CircularProgressbarWithChildren } from "react-circular-progressbar";
 import { cn } from "@/lib/utils";
-import "react-circular-progressbar/dist/styles.css";
 import { Button } from "@/components/ui/button";
+import { CircularProgressbar } from "@/components/CircularProgressbar";
 
 type Props = {
   id: number;
@@ -60,18 +59,19 @@ export const LessonButton = ({
         }}
       >
         {current ? (
-          <div className="h-[102px] w-[102px] relative">
+          <div className="h-[102px] w-[102px] relative flex justify-center items-center">
             <div className="absolute -top-6 left-2.5 px-3 py-2.5 border-2 font-bold uppercase text-green-500 bg-white rounded-xl animate-bounce tracking-wide z-10">
               Start{" "}
               <div className="absolute left-1/2 -bottom-2 w-o h-0 border-x-8 border-x-transparent border-t-8 transform -translate-x-1/2" />
             </div>
-            <CircularProgressbarWithChildren
-              value={Number.isNaN(percentage) ? 0 : percentage}
-              styles={{
-                path: { stroke: "#4ade80" },
-                trail: { stroke: "#e5e7eb" },
-              }}
-            >
+            <div>
+              <CircularProgressbar
+                value={Number.isNaN(percentage) ? 0 : percentage}
+                strokeWidth={10}
+                sqSize={106}
+              />
+            </div>
+            <div className="absolute">
               <Button
                 size="rounded"
                 variant={locked ? "locked" : "secondary"}
@@ -87,7 +87,7 @@ export const LessonButton = ({
                   style={{ width: "2.5rem", height: "2.5rem" }}
                 />
               </Button>
-            </CircularProgressbarWithChildren>
+            </div>
           </div>
         ) : (
           <Button
