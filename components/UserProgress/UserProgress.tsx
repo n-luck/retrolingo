@@ -6,7 +6,6 @@ import { InfinityIcon } from "lucide-react";
 import { courses } from "@/database/schema";
 
 type Props = {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   activeCourse: typeof courses.$inferSelect;
   hearts: number;
   points: number;
